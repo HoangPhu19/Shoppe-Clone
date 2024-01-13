@@ -1,12 +1,12 @@
 <script setup>
 import { computed, ref, watch, watchEffect } from "vue";
-import { useStore } from "vuex";
+import { StoreApp } from "../../services/stores";
 
-const store = useStore();
+const store = StoreApp();
 
 const checkProductAll = ref(false);
 
-const products = computed(() => store.getters.getProductInCart);
+const products = computed(() => store.getterCarts);
 
 const productsFormatted = computed(() =>
   products.value.map((e) => ({
@@ -44,7 +44,7 @@ const decreaseQuantity = (product) => {
 };
 
 const removeProductFromCart = (product) => {
-  store.commit("removeFromCart", product.id);
+  store.actionRemoveCart(product.id);
 };
 
 const onChangeCheckAll = (val) => {

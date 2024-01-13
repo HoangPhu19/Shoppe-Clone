@@ -1,13 +1,20 @@
 <script setup>
-import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 
-const username = ref("");
-const password = ref("");
+import { ref } from "vue";
+
+import { StoreAuth } from "../../services/stores";
+
+const router = useRouter();
+const STORE_AUTH = StoreAuth();
+
+const username = ref("kminchelle");
+const password = ref("0lelplR");
 const errorMessage = ref("");
+
 const requireMessageUser = ref("");
 const requireMessagePass = ref("");
+
 const toggleInputUser = ref(false);
 const toggleInputPass = ref(false);
 
@@ -31,29 +38,34 @@ const checkInputPass = () => {
   }
 };
 
-const router = useRouter();
+const loginUser1 = () => {
+  API_AUTH.apiSignIn(username.value, password.value)
+    .then((data) => {
+      console.log("Đăng nhập thành công:", data);
 
-const store = useStore();
+      errorMessage.value = "";
 
-const loggedInUser = ref(null);
+      API_AUTH.getCurrentAuthUser()
+        .then((user) => {
+          console.log("Thông tin xác thực:", user);
 
+          localStorage.setItem("userInf", JSON.stringify(user));
+
+          router.replace("/");
+        })
+        .catch((error) => {
+          console.error("Lỗi khi lấy thông tin xác thực:", error);
+        });
+    })
+    .catch((error) => {
+      errorMessage.value =
+        "Đăng nhập KHÔNG thành công. Bạn vui lòng thử lại hoặc đăng nhập bằng cách khác nhé!";
+    });
+};
 const loginUser = () => {
-  const usersData = store.getters.getRegUser;
-
-  const userInput = usersData.find(
-    (userData) =>
-      userData.username === username.value &&
-      userData.password === password.value
-  );
-
-  if (userInput) {
-    router.push("/");
-    loggedInUser.value = { ...userInput };
-    store.dispatch("setLogUser", loggedInUser);
-  } else {
-    errorMessage.value =
-      "Đăng nhập KHÔNG thành công. Bạn vui lòng thử lại hoặc đăng nhập bằng cách khác nhé!";
-  }
+  STORE_AUTH.actionLogin(username.value, password.value).then(() => {
+    router.replace({ name: "Home" });
+  });
 };
 </script>
 
@@ -235,7 +247,7 @@ const loginUser = () => {
         >
           <div class="opacity-40">Bạn mới biết đến Shopee?</div>
 
-          <router-link to="/SignUp">
+          <router-link :to="{ name: 'SignUp' }">
             <div class="text-orange-600">Đăng Ký</div>
           </router-link>
         </div>

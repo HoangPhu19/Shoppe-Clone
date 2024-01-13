@@ -2,13 +2,15 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
-import { useStore } from "vuex";
+import { StoreApp } from "../../services/stores";
 
 import { ProductReviewSold } from "../../assets/data";
 import ModalProductImages from "./components/ModalProductImages.vue";
 import ModalAddress from "./components/ModalAddress.vue";
 
 const router = useRouter();
+const toast = useToast();
+const STORE_APP = StoreApp();
 
 const selectedImg = ref(router.currentRoute.value.query.images[0]);
 
@@ -128,10 +130,6 @@ const onInputChange = () => {
   }
 };
 
-const toast = useToast();
-
-const store = useStore();
-
 const notify = () => {
   toast.success("Sản phẩm đã được thêm vào Giỏ Hàng!", {
     timeout: 1000,
@@ -144,7 +142,7 @@ const notify = () => {
     quantity: numberOfProducts.value,
     checked: false,
   };
-  store.dispatch("AddToCart", product);
+  STORE_APP.AddToCart(product);
 };
 
 onMounted(() => {

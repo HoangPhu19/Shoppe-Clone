@@ -1,9 +1,10 @@
 <script setup>
-import { useStore } from "vuex";
+import { StoreApp } from "./services/stores";
 import { useRouter, useRoute } from "vue-router";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { appLocalStorage, userData } from "./services/utils";
 
-const store = useStore();
+const store = StoreApp();
 
 const router = useRouter();
 
@@ -11,9 +12,11 @@ const route = useRoute();
 
 const isCartPage = computed(() => route.name === "Cart");
 
-const userData = store.getters.getLogUser;
+const isSignUpPage = computed(() => route.name === "SignUp");
 
-const AddedCart = computed(() => store.getters.getProductInCart);
+const isSignInPage = computed(() => route.name === "SignIn");
+
+const AddedCart = computed(() => store.getterCarts);
 
 const countProductInCart = computed(() => {
   let count = AddedCart.value.length;
@@ -23,14 +26,20 @@ const countProductInCart = computed(() => {
 const iShowModalCart = ref(false);
 
 const onLogout = () => {
-  store.dispatch("logout");
+  appLocalStorage.value.userData = {};
+  appLocalStorage.value.accessToken = "";
 
   router.replace({ name: "SignIn" });
 };
 </script>
 
 <template>
-  <div class="AppHeader bg-header">
+  <div
+    :class="[
+      isSignUpPage ? 'hidden' : 'bg-header',
+      isSignInPage ? 'hidden' : 'bg-header',
+    ]"
+  >
     <div class="navbar-header">
       <div class="navbar-top">
         <div class="navbar-left">
@@ -203,7 +212,7 @@ const onLogout = () => {
               <img class="w-full h-full rounded-[50%]" :src="userData.image" />
             </div>
 
-            <div v-if="userData">{{ userData.accountname }}</div>
+            <div v-if="userData">{{ userData.username }}</div>
           </div>
 
           <div class="flex gap-2" v-if="!userData">

@@ -1,11 +1,11 @@
 export default [
   {
-    path: "/SignIn",
+    path: "/sign-in",
     name: "SignIn",
     component: () => import("../SignIn.vue"),
   },
   {
-    path: "/SignUp",
+    path: "/sign-up",
     name: "SignUp",
     component: () => import("../SignUp.vue"),
   },

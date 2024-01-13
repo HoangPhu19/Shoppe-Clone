@@ -312,13 +312,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@splidejs/splide-extension-grid@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@splidejs/splide-extension-grid@npm:0.4.1"
-  checksum: 18766cd2eafa441332bdd403c1914bb5aec4ac6cba9dc15c1d72d775e32942c58c511d344aac53e4205e0172f0c612defa2f3f8947875a9e15715ebf7598565e
-  languageName: node
-  linkType: hard
-
 "@splidejs/splide@npm:^4.1.3":
   version: 4.1.4
   resolution: "@splidejs/splide@npm:4.1.4"
@@ -335,7 +328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-vue@npm:^2.42.0":
+"@tabler/icons-vue@npm:^2.45.0":
   version: 2.45.0
   resolution: "@tabler/icons-vue@npm:2.45.0"
   dependencies:
@@ -350,6 +343,13 @@ __metadata:
   version: 2.45.0
   resolution: "@tabler/icons@npm:2.45.0"
   checksum: e221e091554839771774d0d8438d434987fcc7096892b24e53ef4fc78fe3b8087cc047293e3eb2084b3b5b9173c39dbf5aaff8cbbe78be142bc2bf55cf178ec2
+  languageName: node
+  linkType: hard
+
+"@types/web-bluetooth@npm:^0.0.20":
+  version: 0.0.20
+  resolution: "@types/web-bluetooth@npm:0.0.20"
+  checksum: 3a49bd9396506af8f1b047db087aeeea9fe4301b7fad4fe06ae0f6e00d331138caae878fd09e6410658b70b4aaf10e4b191c41c1a5ff72211fe58da290c7d003
   languageName: node
   linkType: hard
 
@@ -466,6 +466,34 @@ __metadata:
   version: 3.4.6
   resolution: "@vue/shared@npm:3.4.6"
   checksum: 6f842dfafdc99fcf8a40f8eb10db60fbb395ca3fc4cf7e72e523891ced17afe2f31db3009ae502b75654b19682364cf9731c92c50fbca71a7528ed0e7ac7b9df
+  languageName: node
+  linkType: hard
+
+"@vueuse/core@npm:^10.7.1":
+  version: 10.7.1
+  resolution: "@vueuse/core@npm:10.7.1"
+  dependencies:
+    "@types/web-bluetooth": "npm:^0.0.20"
+    "@vueuse/metadata": "npm:10.7.1"
+    "@vueuse/shared": "npm:10.7.1"
+    vue-demi: "npm:>=0.14.6"
+  checksum: 789d1f641d28533ee756d2b0f98fd9a9df1fa7fb1b6940fe2f27cf3dd94cbf1ea96fdc91b829e53e1e78bdf104367e5586adb53879aa6913891cb9e32bcc3df7
+  languageName: node
+  linkType: hard
+
+"@vueuse/metadata@npm:10.7.1":
+  version: 10.7.1
+  resolution: "@vueuse/metadata@npm:10.7.1"
+  checksum: ccd2d66d99bcfd9f02f9cae012b3c369fa8760b79aadc2c39e44f6bafe87eb995f044c8381bc4c147a01b99e3f466f703572341643d866559b9980a51332b318
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:10.7.1":
+  version: 10.7.1
+  resolution: "@vueuse/shared@npm:10.7.1"
+  dependencies:
+    vue-demi: "npm:>=0.14.6"
+  checksum: 3f7e8499b6a9749c01eb8cc965b6154bbef49405066bbed6cdc770230a347eb3065351f50af00e5731cde8952e022387aac251b8d37986d0f51f9bf0b6b2efbd
   languageName: node
   linkType: hard
 
@@ -1892,6 +1920,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pinia@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "pinia@npm:2.1.7"
+  dependencies:
+    "@vue/devtools-api": "npm:^6.5.0"
+    vue-demi: "npm:>=0.14.5"
+  peerDependencies:
+    "@vue/composition-api": ^1.4.0
+    typescript: ">=4.4.4"
+    vue: ^2.6.14 || ^3.3.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    typescript:
+      optional: true
+  checksum: f4380a4db04b5b8565ed8a6843821d91f8f650d79dd9f0094005248bd963521b8a73419032fda76541e59b895b0e7852e67ca9d0408162cc391ce5a1bcbda445
+  languageName: node
+  linkType: hard
+
 "pinkie-promise@npm:^2.0.0":
   version: 2.0.1
   resolution: "pinkie-promise@npm:2.0.1"
@@ -2481,6 +2528,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-demi@npm:>=0.14.5, vue-demi@npm:>=0.14.6":
+  version: 0.14.6
+  resolution: "vue-demi@npm:0.14.6"
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    vue: ^3.0.0-0 || ^2.6.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  bin:
+    vue-demi-fix: bin/vue-demi-fix.js
+    vue-demi-switch: bin/vue-demi-switch.js
+  checksum: c292c398ad3c2dbbaaf9b66a0a14b725840d3ba2afb109000cf12ccbc12f9ac4d569d3c14d2a347889519a3a0d58b8169ffb924c91ba506fe69063ea06ca6e3d
+  languageName: node
+  linkType: hard
+
 "vue-router@npm:^4.2.4":
   version: 4.2.5
   resolution: "vue-router@npm:4.2.5"
@@ -2523,13 +2586,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vueshoppe-project@workspace:."
   dependencies:
-    "@splidejs/splide-extension-grid": "npm:^0.4.1"
     "@splidejs/vue-splide": "npm:^0.6.12"
-    "@tabler/icons-vue": "npm:^2.42.0"
+    "@tabler/icons-vue": "npm:^2.45.0"
     "@vitejs/plugin-vue": "npm:^4.3.4"
+    "@vueuse/core": "npm:^10.7.1"
     autoprefixer: "npm:^10.4.16"
     axios: "npm:^1.6.5"
     gh-pages: "npm:^6.1.0"
+    pinia: "npm:^2.1.7"
     postcss: "npm:^8.4.31"
     sass: "npm:^1.69.5"
     tailwindcss: "npm:^3.3.5"
@@ -2537,18 +2601,18 @@ __metadata:
     vue: "npm:^3.3.4"
     vue-router: "npm:^4.2.4"
     vue-toastification: "npm:^2.0.0-rc.5"
-    vuex: "npm:^4.1.0"
+    vuex: "npm:4.0.2"
   languageName: unknown
   linkType: soft
 
-"vuex@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "vuex@npm:4.1.0"
+"vuex@npm:4.0.2":
+  version: 4.0.2
+  resolution: "vuex@npm:4.0.2"
   dependencies:
     "@vue/devtools-api": "npm:^6.0.0-beta.11"
   peerDependencies:
-    vue: ^3.2.0
-  checksum: 33605e6d8731cfa064933727a199039db474cb36e1a9178a2c31f21c3d9c04e7800d70f4b5115986cb5995761c7320faaab512e9ba35d019ae4f657c25bb7fdb
+    vue: ^3.0.2
+  checksum: 1e7898091bd7f913ad200302fe0a0393f90618a8bbb4517357136042cb106e4adeb0e066d41ab15720706d10362c146a065c61765d11222d3d9b642b8be0a4d5
   languageName: node
   linkType: hard
 

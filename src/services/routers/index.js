@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import RoutesAuth from "../../views/auth/services/router";
+import { isLogin } from "../utils";
 
 const routes = [
   {
     path: "/",
-    name: "HomePage",
+    name: "Home",
     component: () => import("../../views/home/Home.vue"),
   },
   {
@@ -24,6 +25,20 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach(async (to) => {
+  window.scrollTo(0, 0);
+
+  if (isLogin) {
+    if (to.name === "SignIn") {
+      return { name: "Home" };
+    } else {
+      return;
+    }
+  }
+
+  return;
 });
 
 export default router;
