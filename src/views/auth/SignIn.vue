@@ -38,30 +38,6 @@ const checkInputPass = () => {
   }
 };
 
-const loginUser1 = () => {
-  API_AUTH.apiSignIn(username.value, password.value)
-    .then((data) => {
-      console.log("Đăng nhập thành công:", data);
-
-      errorMessage.value = "";
-
-      API_AUTH.getCurrentAuthUser()
-        .then((user) => {
-          console.log("Thông tin xác thực:", user);
-
-          localStorage.setItem("userInf", JSON.stringify(user));
-
-          router.replace("/");
-        })
-        .catch((error) => {
-          console.error("Lỗi khi lấy thông tin xác thực:", error);
-        });
-    })
-    .catch((error) => {
-      errorMessage.value =
-        "Đăng nhập KHÔNG thành công. Bạn vui lòng thử lại hoặc đăng nhập bằng cách khác nhé!";
-    });
-};
 const loginUser = () => {
   STORE_AUTH.actionLogin(username.value, password.value).then(() => {
     router.replace({ name: "Home" });

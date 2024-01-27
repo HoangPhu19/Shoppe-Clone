@@ -2,11 +2,12 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
-import { StoreApp } from "../../services/stores";
+import { StoreApp } from "../cart/services/store";
 
 import { ProductReviewSold } from "../../assets/data";
 import ModalProductImages from "./components/ModalProductImages.vue";
 import ModalAddress from "./components/ModalAddress.vue";
+import { isLogin } from "../../services/utils/localStorage";
 
 const router = useRouter();
 const toast = useToast();
@@ -131,9 +132,16 @@ const onInputChange = () => {
 };
 
 const notify = () => {
+  if (!isLogin.value) {
+    router.push({ name: "SignIn" });
+
+    return;
+  }
+
   toast.success("Sản phẩm đã được thêm vào Giỏ Hàng!", {
     timeout: 1000,
   });
+
   const product = {
     id: router.currentRoute.value.query.id,
     price: discounted.value,
@@ -142,7 +150,7 @@ const notify = () => {
     quantity: numberOfProducts.value,
     checked: false,
   };
-  STORE_APP.AddToCart(product);
+  STORE_APP.actionAddToCart(product);
 };
 
 onMounted(() => {

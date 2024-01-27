@@ -1,10 +1,13 @@
 <script setup>
-import { StoreApp } from "./services/stores";
+import { ref, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { ref, computed, onMounted } from "vue";
-import { appLocalStorage, userData } from "./services/utils";
 
-const store = StoreApp();
+import {
+  appLocalStorage,
+  userData,
+  cart,
+  isLogin,
+} from "./services/utils/localStorage";
 
 const router = useRouter();
 
@@ -16,7 +19,7 @@ const isSignUpPage = computed(() => route.name === "SignUp");
 
 const isSignInPage = computed(() => route.name === "SignIn");
 
-const AddedCart = computed(() => store.getterCarts);
+const AddedCart = computed(() => cart.value);
 
 const countProductInCart = computed(() => {
   let count = AddedCart.value.length;
@@ -25,11 +28,13 @@ const countProductInCart = computed(() => {
 
 const iShowModalCart = ref(false);
 
+const iShowModalOptions = ref(false);
+
 const onLogout = () => {
+  router.replace({ name: "SignIn" });
+
   appLocalStorage.value.userData = {};
   appLocalStorage.value.accessToken = "";
-
-  router.replace({ name: "SignIn" });
 };
 </script>
 
@@ -107,6 +112,7 @@ const onLogout = () => {
         <div class="navbar-center"></div>
 
         <div class="navbar-right">
+          <!-- Thông báo -->
           <div class="navbar-right__v1">
             <div>
               <svg
@@ -134,6 +140,7 @@ const onLogout = () => {
             <div>Thông Báo</div>
           </div>
 
+          <!-- Hỗ trợ -->
           <div class="navbar-right__v1">
             <div>
               <svg
@@ -160,6 +167,7 @@ const onLogout = () => {
             <div>Hỗ Trợ</div>
           </div>
 
+          <!-- Ngôn ngữ -->
           <div class="navbar-right__v1">
             <div>
               <svg
@@ -204,17 +212,47 @@ const onLogout = () => {
             </div>
           </div>
 
+          <!-- Profile -->
           <div
-            class="flex gap-2 hover:opacity-80 cursor-pointer text-sm"
-            @click="onLogout"
+            class="flex gap-2 relative text-sm cursor-pointer"
+            @mouseover="iShowModalOptions = true"
+            @mouseleave="iShowModalOptions = false"
           >
             <div class="w-5 h-5" v-if="userData">
               <img class="w-full h-full rounded-[50%]" :src="userData.image" />
             </div>
 
-            <div v-if="userData">{{ userData.username }}</div>
+            <div v-if="userData">
+              {{ userData.firstName }} {{ userData.lastName }}
+            </div>
+
+            <!-- Modal Options -->
+            <transition>
+              <div
+                class="flex flex-col bg-white absolute top-5 right-0 text-black z-50 text-nowrap"
+                v-if="iShowModalOptions"
+              >
+                <router-link :to="{ name: 'Profile' }">
+                  <div class="p-3 hover:bg-gray-50 hover:text-green-400">
+                    Tài Khoản Của Tôi
+                  </div>
+                </router-link>
+
+                <div class="p-3 hover:bg-gray-50 hover:text-green-400">
+                  Đơn Mua
+                </div>
+
+                <div
+                  class="p-3 hover:bg-gray-50 hover:text-green-400"
+                  @click="onLogout"
+                >
+                  Đăng xuất
+                </div>
+              </div>
+            </transition>
           </div>
 
+          <!-- Auth -->
           <div class="flex gap-2" v-if="!userData">
             <router-link :to="{ name: 'SignUp' }">
               <div>Đăng Ký</div>
@@ -230,6 +268,7 @@ const onLogout = () => {
       </div>
 
       <div :class="[isCartPage ? 'hidden' : 'navbar-bottom']">
+        <!-- Logo -->
         <div class="navbar-bottom__left">
           <router-link to="/">
             <div>
@@ -247,6 +286,7 @@ const onLogout = () => {
           </router-link>
         </div>
 
+        <!-- Sale off suggestions -->
         <div class="navbar-bottom__center">
           <div class="shoppe-searchbar__main">
             <input type="text" class="shoppe-searchbar-input" />
@@ -287,6 +327,7 @@ const onLogout = () => {
           </div>
         </div>
 
+        <!-- Cart -->
         <div class="navbar-bottom__right relative">
           <div
             class="w-auto"
@@ -294,7 +335,9 @@ const onLogout = () => {
             @mouseleave="iShowModalCart = false"
           >
             <div class="relative cursor-pointer">
-              <router-link :to="{ name: 'Cart' }">
+              <router-link
+                :to="isLogin ? { name: 'Cart' } : { name: 'SignIn' }"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-shopping-cart"
@@ -326,34 +369,56 @@ const onLogout = () => {
             <!-- Modal Cart -->
             <transition>
               <div
-                class="w-96 bg-white border absolute top-[30px] right-[60px] z-50"
+                :class="[
+                  isLogin
+                    ? 'w-96 bg-white border absolute top-[30px] right-[60px] z-50'
+                    : 'w-96 h-52 flex justify-center items-center bg-white border absolute top-[30px] right-[60px] z-50',
+                ]"
                 v-if="iShowModalCart"
               >
-                <div class="text-sm text-gray-400 p-2">Sản Phẩm Mới Thêm</div>
-
                 <div
-                  class="w-full p-2 flex justify-between text-sm mb-2 bg-gray-50"
-                  v-for="product in AddedCart"
-                  :key="product.id"
+                  v-if="!isLogin"
+                  class="flex flex-col justify-center items-center"
                 >
-                  <div class="flex w-3/5 gap-2">
-                    <div class="w-1/6 border">
-                      <img :src="product.image" />
-                    </div>
+                  <img
+                    src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png"
+                    class="w-36"
+                  />
 
-                    <div class="w-full truncate">{{ product.description }}</div>
-                  </div>
-
-                  <div class="text-orange-600">{{ product.price }} dollars</div>
+                  <span class="text-sm text-gray-400">Chưa Có Sản Phẩm</span>
                 </div>
 
-                <router-link :to="{ name: 'Cart' }">
-                  <div class="flex justify-end p-2 text-white text-sm">
-                    <div class="bg-orange-600 p-2 rounded hover:opacity-90">
-                      Xem Giỏ Hàng
+                <div v-if="isLogin">
+                  <div class="text-sm text-gray-400 p-2">Sản Phẩm Mới Thêm</div>
+
+                  <div
+                    class="w-full p-2 flex justify-between text-sm mb-2 bg-gray-50"
+                    v-for="product in AddedCart"
+                    :key="product.id"
+                  >
+                    <div class="flex w-3/5 gap-2">
+                      <div class="w-1/6 border">
+                        <img :src="product.image" />
+                      </div>
+
+                      <div class="w-full truncate">
+                        {{ product.description }}
+                      </div>
+                    </div>
+
+                    <div class="text-orange-600">
+                      {{ product.price }} dollars
                     </div>
                   </div>
-                </router-link>
+
+                  <router-link :to="{ name: 'Cart' }">
+                    <div class="flex justify-end p-2 text-white text-sm">
+                      <div class="bg-orange-600 p-2 rounded hover:opacity-90">
+                        Xem Giỏ Hàng
+                      </div>
+                    </div>
+                  </router-link>
+                </div>
               </div>
             </transition>
           </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 export { API_AUTH } from "../../views/auth/services/api";
-import { accessToken } from "../../services/utils";
+import { accessToken } from "../../services/utils/localStorage";
 
 export const AxiosInstance = axios.create({
   baseURL: "https://dummyjson.com/",

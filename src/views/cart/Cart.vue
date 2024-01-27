@@ -1,12 +1,14 @@
 <script setup>
 import { computed, ref, watch, watchEffect } from "vue";
-import { StoreApp } from "../../services/stores";
+import { StoreApp } from "../cart/services/store";
+import { appLocalStorage } from "../../services/utils/localStorage";
+import { isLogin } from "../../services/utils/localStorage";
 
 const store = StoreApp();
 
 const checkProductAll = ref(false);
 
-const products = computed(() => store.getterCarts);
+const products = computed(() => appLocalStorage.value.cart);
 
 const productsFormatted = computed(() =>
   products.value.map((e) => ({

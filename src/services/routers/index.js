@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import RoutesAuth from "../../views/auth/services/router";
-import { isLogin } from "../utils";
+import { isLogin, appLocalStorage } from "../utils/localStorage";
 
 const routes = [
   {
@@ -18,6 +18,11 @@ const routes = [
     name: "Cart",
     component: () => import("../../views/cart/Cart.vue"),
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("../../views/user/Profile.vue"),
+  },
 
   ...RoutesAuth,
 ];
@@ -30,15 +35,15 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   window.scrollTo(0, 0);
 
-  if (isLogin) {
+  if (appLocalStorage.value.userData.id) {
     if (to.name === "SignIn") {
-      return { name: "Home" };
-    } else {
-      return;
+      return (to.path = "/");
+    }
+  } else {
+    if (to.name === "Cart" || to.name === "Profile") {
+      return (to.path = "/");
     }
   }
-
-  return;
 });
 
 export default router;

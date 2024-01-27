@@ -1,6 +1,9 @@
 import { defineStore } from "pinia";
 import { API_AUTH } from "../../../services/api";
-import { accessToken, appLocalStorage } from "../../../services/utils";
+import {
+  accessToken,
+  appLocalStorage,
+} from "../../../services/utils/localStorage";
 
 export const StoreAuth = defineStore("StoreAuth", {
   state: () => ({}),
