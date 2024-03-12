@@ -21,5 +21,8 @@ export const StoreApp = defineStore("StoreApp", {
         (item) => item.id !== productID
       );
     },
+    actionAddToOrder(orderdProducts) {
+      appLocalStorage.value.order.push(orderdProducts);
+    },
   },
 });

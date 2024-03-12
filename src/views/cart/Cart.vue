@@ -1,35 +1,22 @@
 <script setup>
-import { computed, ref, watch, watchEffect } from "vue";
+import { computed, ref, watch, onMounted } from "vue";
+import { useRouter } from "vue-router";
+
 import { StoreApp } from "../cart/services/store";
 import { appLocalStorage } from "../../services/utils/localStorage";
 import { isLogin } from "../../services/utils/localStorage";
 
 const store = StoreApp();
 
+const router = useRouter();
+
 const checkProductAll = ref(false);
 
-const products = computed(() => appLocalStorage.value.cart);
+const cart = computed(() => appLocalStorage.value.cart);
 
-const productsFormatted = computed(() =>
-  products.value.map((e) => ({
-    checked: e.checked,
-    price: e.price * e.quantity,
-  }))
-);
+const hasProductsInCart = computed(() => cart.value.length > 0);
 
-const onReturnCheckoutValues = () => {
-  const productsChecked = productsFormatted.value.filter(
-    (e) => e.checked === true
-  );
-
-  return {
-    totalQuantity: productsChecked.length,
-
-    totalPrice: productsChecked
-      .map((e) => e.price)
-      .reduce((accumulator, currentValue) => accumulator + currentValue, 0),
-  };
-};
+const iShowPopupNoftication = ref(false);
 
 const increaseQuantity = (product) => {
   product.quantity++;
@@ -49,9 +36,32 @@ const removeProductFromCart = (product) => {
   store.actionRemoveCart(product.id);
 };
 
+const productsFormatted = computed(() =>
+  cart.value.map((e) => ({
+    checked: e.checked,
+    price: e.price * e.quantity,
+  }))
+);
+
+const onReturnCheckoutValues = () => {
+  const productsChecked = productsFormatted.value.filter(
+    (e) => e.checked === true
+  );
+
+  return {
+    totalQuantity: productsChecked.length,
+
+    totalPrice: productsChecked
+      .map((e) => e.price)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0),
+  };
+};
+
 const onChangeCheckAll = (val) => {
-  products.value.map((e) => {
+  cart.value.map((e) => {
     e.checked = val.target._modelValue;
+
+    console.log(e.checked);
   });
 };
 
@@ -64,6 +74,25 @@ watch(productsFormatted, (newVal) => {
     checkProductAll.value = false;
   } else {
     checkProductAll.value = true;
+  }
+});
+
+const onBuy = () => {
+  const hasCheckedProduct = cart.value.some((e) => e.checked === true);
+  if (hasCheckedProduct) {
+    router.push({ name: "Checkout" });
+  } else {
+    iShowPopupNoftication.value = true;
+  }
+};
+
+onMounted(() => {
+  const allChecked = productsFormatted.value.every((e) => e.checked);
+
+  if (allChecked) {
+    checkProductAll.value = true;
+  } else {
+    checkProductAll.value = false;
   }
 });
 </script>
@@ -99,7 +128,7 @@ watch(productsFormatted, (newVal) => {
     </div>
   </div>
 
-  <div class="w-[1200px] mx-auto">
+  <div class="w-[1200px] mx-auto" v-if="hasProductsInCart">
     <!-- Title -->
     <div
       class="bg-white mt-4 text-sm p-3 flex items-center gap-2 border border-yellow-200 rounded-sm"
@@ -148,7 +177,7 @@ watch(productsFormatted, (newVal) => {
         <div class="border">
           <div
             class="flex justify-center items-center h-[100px] border-b px-8 text-sm"
-            v-for="product in products"
+            v-for="product in cart"
             :key="product.id"
           >
             <!-- Checkbox -->
@@ -308,7 +337,7 @@ watch(productsFormatted, (newVal) => {
             :onchange="onChangeCheckAll"
           />
 
-          <span>Chọn Tất Cả({{ products.length }})</span>
+          <span>Chọn Tất Cả({{ cart.length }})</span>
 
           <span>Xóa</span>
         </div>
@@ -321,10 +350,32 @@ watch(productsFormatted, (newVal) => {
             Phẩm):
           </span>
 
-          <span>{{ onReturnCheckoutValues().totalPrice }} dollars</span>
+          <div class="flex text-xl text-orange-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-currency-dollar"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
+              />
+              <path d="M12 3v3m0 12v3" />
+            </svg>
+
+            <div>{{ onReturnCheckoutValues().totalPrice }}</div>
+          </div>
 
           <div
             class="w-52 py-2 text-center text-white text-sm bg-orange-600 rounded-sm hover:opacity-90 cursor-pointer"
+            @click="onBuy"
           >
             Mua hàng
           </div>
@@ -332,6 +383,50 @@ watch(productsFormatted, (newVal) => {
       </div>
     </div>
   </div>
+
+  <!-- Not any product in cart -->
+  <div
+    v-if="!hasProductsInCart"
+    class="flex justify-center items-center w-full h-[400px]"
+  >
+    <div class="flex flex-col items-center gap-2">
+      <img
+        src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f4.png"
+        class="w-24"
+      />
+
+      <p class="text-gray-500">Giỏ hàng của bạn còn trống</p>
+
+      <router-link to="/">
+        <div
+          class="py-2 px-12 bg-orange-600 text-white rounded-sm hover:opacity-90"
+        >
+          MUA NGAY
+        </div>
+      </router-link>
+    </div>
+  </div>
+
+  <!-- Popup Notification -->
+  <Teleport to="body">
+    <div
+      class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-20"
+      v-if="iShowPopupNoftication"
+    >
+      <div class="bg-white p-4 rounded">
+        <div class="text-gray-600 p-12">
+          Bạn vẫn chưa chọn sản phẩm nào để mua.
+        </div>
+
+        <div
+          class="p-2 bg-orange-600 text-white text-center rounded-sm cursor-pointer hover:opacity-90"
+          @click="iShowPopupNoftication = false"
+        >
+          OK
+        </div>
+      </div>
+    </div>
+  </Teleport>
 </template>
 
 <style scoped>

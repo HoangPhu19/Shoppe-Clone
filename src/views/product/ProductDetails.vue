@@ -149,6 +149,8 @@ const notify = () => {
     image: router.currentRoute.value.query.thumbnail,
     quantity: numberOfProducts.value,
     checked: false,
+    brand: router.currentRoute.value.query.brand,
+    currentPrice: priceProduct.value,
   };
   STORE_APP.actionAddToCart(product);
 };

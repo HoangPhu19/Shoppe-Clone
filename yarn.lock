@@ -2052,6 +2052,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"primevue@npm:^3.49.0":
+  version: 3.49.0
+  resolution: "primevue@npm:3.49.0"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 755ddb9f05ac78fb0059550709d4920388743d01dfddc814ed6f34bd4ca0aff38638aa87986e2a4062207643172fdf4f5901cde61a7057998cc89be69cbff1e1
+  languageName: node
+  linkType: hard
+
 "proc-log@npm:^3.0.0":
   version: 3.0.0
   resolution: "proc-log@npm:3.0.0"
@@ -2595,6 +2604,7 @@ __metadata:
     gh-pages: "npm:^6.1.0"
     pinia: "npm:^2.1.7"
     postcss: "npm:^8.4.31"
+    primevue: "npm:^3.49.0"
     sass: "npm:^1.69.5"
     tailwindcss: "npm:^3.3.5"
     vite: "npm:^4.4.9"

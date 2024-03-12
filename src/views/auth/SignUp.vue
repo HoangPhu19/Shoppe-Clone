@@ -1,11 +1,8 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 
 const router = useRouter();
-
-const store = useStore();
 
 const accountname = ref("");
 const username = ref("");

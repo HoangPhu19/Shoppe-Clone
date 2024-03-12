@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["gh-pages", "npm:6.1.1"],\
           ["pinia", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.1.7"],\
           ["postcss", "npm:8.4.33"],\
+          ["primevue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.49.0"],\
           ["sass", "npm:1.69.7"],\
           ["tailwindcss", "npm:3.4.1"],\
           ["vite", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:4.5.1"],\
@@ -2448,6 +2449,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["primevue", [\
+      ["npm:3.49.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/primevue-npm-3.49.0-8b247c8812-10c0.zip/node_modules/primevue/",\
+        "packageDependencies": [\
+          ["primevue", "npm:3.49.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.49.0", {\
+        "packageLocation": "./.yarn/__virtual__/primevue-virtual-8ccc9072c1/4/AppData/Local/Yarn/Berry/cache/primevue-npm-3.49.0-8b247c8812-10c0.zip/node_modules/primevue/",\
+        "packageDependencies": [\
+          ["primevue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.49.0"],\
+          ["@types/vue", null],\
+          ["vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.4.6"]\
+        ],\
+        "packagePeers": [\
+          "@types/vue",\
+          "vue"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["proc-log", [\
       ["npm:3.0.0", {\
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/proc-log-npm-3.0.0-a8c21c2f0f-10c0.zip/node_modules/proc-log/",\
@@ -3091,6 +3114,7 @@ const RAW_RUNTIME_STATE =
           ["gh-pages", "npm:6.1.1"],\
           ["pinia", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.1.7"],\
           ["postcss", "npm:8.4.33"],\
+          ["primevue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.49.0"],\
           ["sass", "npm:1.69.7"],\
           ["tailwindcss", "npm:3.4.1"],\
           ["vite", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:4.5.1"],\

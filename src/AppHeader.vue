@@ -15,6 +15,8 @@ const route = useRoute();
 
 const isCartPage = computed(() => route.name === "Cart");
 
+const isCheckoutPage = computed(() => route.name === "Checkout");
+
 const isSignUpPage = computed(() => route.name === "SignUp");
 
 const isSignInPage = computed(() => route.name === "SignIn");
@@ -31,20 +33,15 @@ const iShowModalCart = ref(false);
 const iShowModalOptions = ref(false);
 
 const onLogout = () => {
-  router.replace({ name: "SignIn" });
-
   appLocalStorage.value.userData = {};
   appLocalStorage.value.accessToken = "";
+
+  router.replace({ name: "SignIn" });
 };
 </script>
 
 <template>
-  <div
-    :class="[
-      isSignUpPage ? 'hidden' : 'bg-header',
-      isSignInPage ? 'hidden' : 'bg-header',
-    ]"
-  >
+  <div :class="[isSignInPage ? 'hidden' : 'bg-header']">
     <div class="navbar-header">
       <div class="navbar-top">
         <div class="navbar-left">
@@ -218,11 +215,11 @@ const onLogout = () => {
             @mouseover="iShowModalOptions = true"
             @mouseleave="iShowModalOptions = false"
           >
-            <div class="w-5 h-5" v-if="userData">
+            <div class="w-5 h-5" v-if="isLogin">
               <img class="w-full h-full rounded-[50%]" :src="userData.image" />
             </div>
 
-            <div v-if="userData">
+            <div v-if="isLogin">
               {{ userData.firstName }} {{ userData.lastName }}
             </div>
 
@@ -238,9 +235,11 @@ const onLogout = () => {
                   </div>
                 </router-link>
 
-                <div class="p-3 hover:bg-gray-50 hover:text-green-400">
-                  Đơn Mua
-                </div>
+                <router-link :to="{ name: 'Purchase' }">
+                  <div class="p-3 hover:bg-gray-50 hover:text-green-400">
+                    Đơn Mua
+                  </div>
+                </router-link>
 
                 <div
                   class="p-3 hover:bg-gray-50 hover:text-green-400"
@@ -253,7 +252,7 @@ const onLogout = () => {
           </div>
 
           <!-- Auth -->
-          <div class="flex gap-2" v-if="!userData">
+          <div class="flex gap-2" v-if="!isLogin">
             <router-link :to="{ name: 'SignUp' }">
               <div>Đăng Ký</div>
             </router-link>
@@ -267,7 +266,7 @@ const onLogout = () => {
         </div>
       </div>
 
-      <div :class="[isCartPage ? 'hidden' : 'navbar-bottom']">
+      <div :class="[isCheckoutPage || isCartPage ? 'hidden' : 'navbar-bottom']">
         <!-- Logo -->
         <div class="navbar-bottom__left">
           <router-link to="/">
