@@ -328,21 +328,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-vue@npm:^2.45.0":
-  version: 2.45.0
-  resolution: "@tabler/icons-vue@npm:2.45.0"
+"@tabler/icons-vue@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@tabler/icons-vue@npm:3.1.0"
   dependencies:
-    "@tabler/icons": "npm:2.45.0"
+    "@tabler/icons": "npm:3.1.0"
   peerDependencies:
     vue: ">=3.0.1"
-  checksum: 504ecf23f805230013c4e219a197eeecd8447b9a420e307c02ca3e1637a505eb8e243cab157134282c08b81f7ce1069c1f0f71d49626d24d5464896fddfd26b3
+  checksum: b230c1911be08344c5be90a0b3c5837d137408a8db30a4ffeb426e0e02c370d018bf187733b79e124367af1d49788dbe124d32a8f3919be73ded724da7b7feed
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:2.45.0":
-  version: 2.45.0
-  resolution: "@tabler/icons@npm:2.45.0"
-  checksum: e221e091554839771774d0d8438d434987fcc7096892b24e53ef4fc78fe3b8087cc047293e3eb2084b3b5b9173c39dbf5aaff8cbbe78be142bc2bf55cf178ec2
+"@tabler/icons@npm:3.1.0":
+  version: 3.1.0
+  resolution: "@tabler/icons@npm:3.1.0"
+  checksum: 4c3ad1df8d58f126567ea3e2e9a5c59f8e4ecb6ad61d211652f029ad3d5aa721dedf925aa729c0190b552c2fd7922b3eee8eabea3e239273aa852261b74fe44b
   languageName: node
   linkType: hard
 
@@ -2596,7 +2596,7 @@ __metadata:
   resolution: "vueshoppe-project@workspace:."
   dependencies:
     "@splidejs/vue-splide": "npm:^0.6.12"
-    "@tabler/icons-vue": "npm:^2.45.0"
+    "@tabler/icons-vue": "npm:^3.1.0"
     "@vitejs/plugin-vue": "npm:^4.3.4"
     "@vueuse/core": "npm:^10.7.1"
     autoprefixer: "npm:^10.4.16"

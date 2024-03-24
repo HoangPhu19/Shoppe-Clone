@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted } from "vue";
+
 const props = defineProps({
   data: {
     type: Object,
@@ -25,6 +27,8 @@ const props = defineProps({
         sale: data.discountPercentage,
         saleShop: data.discountCode,
         stock: data.stock,
+        sold: data.sold,
+        review: data.reviews,
       },
     }"
   >
@@ -42,10 +46,10 @@ const props = defineProps({
             {{ data.description }}
           </div>
 
-          <div class="text-red-600 mt-[20%] flex items-center justify-center">
-            <div>{{ data.price }}</div>
-
-            <div>
+          <div
+            class="text-orange-600 mt-[20%] flex items-center justify-between"
+          >
+            <div class="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-currency-dollar"
@@ -64,7 +68,11 @@ const props = defineProps({
                 />
                 <path d="M12 3v3m0 12v3" />
               </svg>
+
+              <div>{{ data.price }}</div>
             </div>
+
+            <div class="text-xs text-gray-500">Đã bán {{ data.sold }}</div>
           </div>
         </div>
       </div>

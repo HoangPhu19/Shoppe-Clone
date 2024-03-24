@@ -27,7 +27,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@splidejs/vue-splide", "npm:0.6.12"],\
-          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.45.0"],\
+          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.1.0"],\
           ["@vitejs/plugin-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:4.6.2"],\
           ["@vueuse/core", "npm:10.7.1"],\
           ["autoprefixer", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:10.4.16"],\
@@ -452,27 +452,27 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@tabler/icons", [\
-      ["npm:2.45.0", {\
-        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@tabler-icons-npm-2.45.0-b3844a22ff-10c0.zip/node_modules/@tabler/icons/",\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@tabler-icons-npm-3.1.0-6eaed035cc-10c0.zip/node_modules/@tabler/icons/",\
         "packageDependencies": [\
-          ["@tabler/icons", "npm:2.45.0"]\
+          ["@tabler/icons", "npm:3.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@tabler/icons-vue", [\
-      ["npm:2.45.0", {\
-        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@tabler-icons-vue-npm-2.45.0-bf4e0acb58-10c0.zip/node_modules/@tabler/icons-vue/",\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/@tabler-icons-vue-npm-3.1.0-c36c8c7ac8-10c0.zip/node_modules/@tabler/icons-vue/",\
         "packageDependencies": [\
-          ["@tabler/icons-vue", "npm:2.45.0"]\
+          ["@tabler/icons-vue", "npm:3.1.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.45.0", {\
-        "packageLocation": "./.yarn/__virtual__/@tabler-icons-vue-virtual-c3743f5e26/4/AppData/Local/Yarn/Berry/cache/@tabler-icons-vue-npm-2.45.0-bf4e0acb58-10c0.zip/node_modules/@tabler/icons-vue/",\
+      ["virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tabler-icons-vue-virtual-550ab74466/4/AppData/Local/Yarn/Berry/cache/@tabler-icons-vue-npm-3.1.0-c36c8c7ac8-10c0.zip/node_modules/@tabler/icons-vue/",\
         "packageDependencies": [\
-          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.45.0"],\
-          ["@tabler/icons", "npm:2.45.0"],\
+          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.1.0"],\
+          ["@tabler/icons", "npm:3.1.0"],\
           ["@types/vue", null],\
           ["vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.4.6"]\
         ],\
@@ -3106,7 +3106,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["vueshoppe-project", "workspace:."],\
           ["@splidejs/vue-splide", "npm:0.6.12"],\
-          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:2.45.0"],\
+          ["@tabler/icons-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:3.1.0"],\
           ["@vitejs/plugin-vue", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:4.6.2"],\
           ["@vueuse/core", "npm:10.7.1"],\
           ["autoprefixer", "virtual:bb1171441bb4f733f083f3b07ba8e28c5fca2fe3d750eacbdddd51aa76d455457a76c914c6f4992815c390e7b92831a68ee8783dd8048b1b9a7dd033f7a8e46d#npm:10.4.16"],\

@@ -17,9 +17,9 @@ const isCartPage = computed(() => route.name === "Cart");
 
 const isCheckoutPage = computed(() => route.name === "Checkout");
 
-const isSignUpPage = computed(() => route.name === "SignUp");
-
 const isSignInPage = computed(() => route.name === "SignIn");
+
+const isHomePage = computed(() => route.name === "Home");
 
 const AddedCart = computed(() => cart.value);
 
@@ -41,7 +41,9 @@ const onLogout = () => {
 </script>
 
 <template>
-  <div :class="[isSignInPage ? 'hidden' : 'bg-header']">
+  <div
+    :class="[isSignInPage ? 'hidden' : 'bg-header', isHomePage ? 'fixed ' : '']"
+  >
     <div class="navbar-header">
       <div class="navbar-top">
         <div class="navbar-left">

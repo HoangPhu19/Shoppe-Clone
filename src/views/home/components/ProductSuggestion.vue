@@ -11,10 +11,25 @@ onMounted(() => {
     .then((res) => res.json())
     .then((res) => {
       listProduct.value = res.products;
+      createRandoomSold();
+      createUserReviews();
       onShuffleProduct();
       applyDiscounts();
     });
 });
+
+const createRandoomSold = () => {
+  listProduct.value.forEach((product) => {
+    product.sold = Math.floor(Math.random() * 1000);
+  });
+};
+
+function createUserReviews() {
+  listProduct.value.forEach((product) => {
+    const maxReviews = product.sold;
+    product.reviews = Math.floor(Math.random() * (maxReviews + 1));
+  });
+}
 
 const onShuffleProduct = () => {
   listProduct.value.sort(() => Math.random() - 0.5);

@@ -1,7 +1,8 @@
 <script setup>
+import { ref, onMounted } from "vue";
+
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css/skyblue";
-import { ref, onMounted } from "vue";
 
 const bannerImages = ref([
   {
@@ -92,7 +93,7 @@ onMounted(() => {
         >
           <SplideTrack>
             <SplideSlide v-for="banner in bannerImages" :key="banner.id">
-              <img :src="banner.imageUrl" />
+              <img :src="banner.imageUrl" class="rounded-sm" />
             </SplideSlide>
           </SplideTrack>
         </Splide>
@@ -218,7 +219,7 @@ onMounted(() => {
 
 <style scoped>
 .banners {
-  margin-top: 20px;
+  margin-top: 140px;
   width: 1200px;
   box-sizing: border-box;
   margin-right: auto;

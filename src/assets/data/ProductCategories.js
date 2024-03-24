@@ -2,167 +2,121 @@ export const ProductCategories = [
   {
     id: 1,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/687f3967b7c2fe6a134a2c11894eea4b_tn",
-    title: "Thời Trang Nam",
+      "https://down-vn.img.susercontent.com/file/31234a27876fb89cd522d7e3db1ba5ca_tn",
+    title: "smartphones",
   },
   {
     id: 2,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/31234a27876fb89cd522d7e3db1ba5ca_tn",
-    title: "Điện Thoại & Phụ Kiện",
+      "https://down-vn.img.susercontent.com/file/c3f3edfaa9f6dafc4825b77d8449999d_tn",
+    title: "laptops",
   },
   {
     id: 3,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/978b9e4cb61c611aaaf58664fae133c5_tn",
-    title: "Thiết Bị Điện Tử",
+      "https://i.pinimg.com/736x/d5/be/dc/d5bedc2548b3973fccb8c7c11aa960e5.jpg",
+    title: "fragrances",
   },
   {
     id: 4,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/c3f3edfaa9f6dafc4825b77d8449999d_tn",
-    title: "Máy Tính & LapTop",
+      "https://down-vn.img.susercontent.com/file/ef1f336ecc6f97b790d5aae9916dcb72_tn",
+    title: "skincare",
   },
   {
     id: 5,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/ec14dd4fc238e676e43be2a911414d4d_tn",
-    title: "Máy Anh & Máy Quay Phim",
+      "https://media.istockphoto.com/id/467970412/vi/vec-to/groceries.jpg?s=1024x1024&w=is&k=20&c=wSBDfdIi6q6FpMyzgWmWbYR9mBgvzmPH_Z0erbTynng=",
+    title: "groceries",
   },
   {
     id: 6,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/86c294aae72ca1db5f541790f7796260_tn",
-    title: "Đồng Hồ",
+      "https://down-vn.img.susercontent.com/file/cd8e0d2e6c14c4904058ae20821d0763_tn",
+    title: "home-decoration",
   },
   {
     id: 7,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/74ca517e1fa74dc4d974e5d03c3139de_tn",
-    title: "Giày Dép Nam",
+      "https://down-vn.img.susercontent.com/file/e4fbccba5e1189d1141b9d6188af79c0_tn",
+    title: "furniture",
   },
   {
     id: 8,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/7abfbfee3c4844652b4a8245e473d857_tn",
-    title: "Thiết Bị Điện Gia Dụng",
+      "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/25664472/2023/10/28/ec86af36-d85e-49e2-980b-c7591041a9c11698463541313Texturedjerseytop1.jpg",
+    title: "tops",
   },
   {
     id: 9,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/6cb7e633f8b63757463b676bd19a50e4_tn",
-    title: "Thể Thao & Du Lich",
+      "https://down-vn.img.susercontent.com/file/75ea42f9eca124e9cb3cde744c060e4d_tn",
+    title: "womens-dresses",
   },
   {
     id: 10,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/3fb459e3449905545701b418e8220334_tn",
-    title: "Ô Tô & Xe Máy & Xe Đạp",
+      "https://down-vn.img.susercontent.com/file/48630b7c76a7b62bc070c9e227097847_tn",
+    title: "womens-shoes",
   },
   {
     id: 11,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/18fd9d878ad946db2f1bf4e33760c86f_tn",
-    title: "Balo & Túi Ví Nam",
+      "https://down-vn.img.susercontent.com/file/687f3967b7c2fe6a134a2c11894eea4b_tn",
+    title: "mens-shirts",
   },
   {
     id: 12,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/ce8f8abc726cafff671d0e5311caa684_tn",
-    title: "Đồ Chơi",
+      "https://down-vn.img.susercontent.com/file/74ca517e1fa74dc4d974e5d03c3139de_tn",
+    title: "mens-shoes",
   },
   {
     id: 13,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/cdf21b1bf4bfff257efe29054ecea1ec_tn",
-    title: "Chăm Sóc Thú Cưng",
+      "https://down-vn.img.susercontent.com/file/86c294aae72ca1db5f541790f7796260_tn",
+    title: "mens-watches",
   },
   {
     id: 14,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/e4fbccba5e1189d1141b9d6188af79c0_tn",
-    title: "Dụng Cụ & Thiết Bị Tiện Ích",
+      "https://dwatchluxury.com/wp-content/uploads/2023/11/Top-10-Famous-Womens-Watch-Brands-2.jpg",
+    title: "womens-watches",
   },
   {
     id: 15,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/75ea42f9eca124e9cb3cde744c060e4d_tn",
-    title: "Thời Trang Nữ",
+      "https://down-vn.img.susercontent.com/file/fa6ada2555e8e51f369718bbc92ccc52_tn",
+    title: "womens-bags",
   },
   {
     id: 16,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/099edde1ab31df35bc255912bab54a5e_tn",
-    title: "Mẹ & Bé",
+      "https://down-vn.img.susercontent.com/file/8e71245b9659ea72c1b4e737be5cf42e_tn",
+    title: "womens-jewellery",
   },
   {
     id: 17,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/24b194a695ea59d384768b7b471d563f_tn",
-    title: "Nhà Cửa & Đời Sống",
+      "https://kinhmateyeplus.com/wp-content/uploads/2023/11/8102.png",
+    title: "sunglasses",
   },
   {
     id: 18,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/ef1f336ecc6f97b790d5aae9916dcb72_tn",
-    title: "Sắc Đẹp",
+      "https://backend.orbitvu.com/sites/default/files/image/HOME-PAGE-DEVICES.png",
+    title: "automotive",
   },
   {
     id: 19,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/49119e891a44fa135f5f6f5fd4cfc747_tn",
-    title: "Sức Khỏe",
+      "https://down-vn.img.susercontent.com/file/3fb459e3449905545701b418e8220334_tn",
+    title: "motorcycle",
   },
   {
     id: 20,
     productImgUrl:
-      "https://down-vn.img.susercontent.com/file/48630b7c76a7b62bc070c9e227097847_tn",
-    title: "Giày Dép Nữ",
-  },
-  {
-    id: 21,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/fa6ada2555e8e51f369718bbc92ccc52_tn",
-    title: "Túi Ví Nữ",
-  },
-  {
-    id: 22,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/8e71245b9659ea72c1b4e737be5cf42e_tn",
-    title: "Phụ Kiện & Trang Sức Nữ",
-  },
-  {
-    id: 23,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/c432168ee788f903f1ea024487f2c889_tn",
-    title: "Bách Hóa Online",
-  },
-  {
-    id: 24,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/36013311815c55d303b0e6c62d6a8139_tn",
-    title: "Nhà Sách Online",
-  },
-
-  {
-    id: 25,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/4540f87aa3cbe99db739f9e8dd2cdaf0_tn",
-    title: "Thời Trang Trẻ Em",
-  },
-  {
-    id: 26,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/cd8e0d2e6c14c4904058ae20821d0763_tn",
-    title: "Giặt Giữ & Chăm Sóc Nhà Cửa",
-  },
-  {
-    id: 27,
-    productImgUrl:
-      "https://down-vn.img.susercontent.com/file/b0f78c3136d2d78d49af71dd1c3f38c1_tn",
-    title: "Vouche & Dịch Vụ",
-  },
-  {
-    id: 28,
+      "https://images.squarespace-cdn.com/content/v1/56ae4c848a65e218a8c26b6c/1508795027271-S6NMTOUUDT3BONBAHAE2/Metropolis_hanging_JanGarncarekDesign_1.jpg?format=750w",
+    title: "lighting",
   },
 ];

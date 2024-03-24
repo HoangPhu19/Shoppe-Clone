@@ -13,7 +13,7 @@ const router = useRouter();
 const toast = useToast();
 const STORE_APP = StoreApp();
 
-const selectedImg = ref(router.currentRoute.value.query.images[0]);
+const selectedImg = ref(router.currentRoute.value.query.thumbnail);
 
 const onToggleBorder = ref(selectedImg.value);
 
@@ -157,6 +157,7 @@ const notify = () => {
 
 onMounted(() => {
   onShuflleData();
+  console.log(router.currentRoute.value.query.id);
 });
 </script>
 
@@ -432,13 +433,13 @@ onMounted(() => {
                 class="flex items-center gap-1 border-r border-gray-300 py-1 px-4"
               >
                 <div class="border-b border-black">
-                  {{ ProductReviewSold[0].review }}
+                  {{ $route.query.review }}
                 </div>
                 <div class="text-gray-500 text-sm">Đánh Giá</div>
               </div>
 
               <div class="flex gap-1 py-1 pl-4 items-center">
-                <div>{{ ProductReviewSold[0].sold }}</div>
+                <div>{{ $route.query.sold }}</div>
                 <div class="text-gray-500 text-sm">Đã Bán</div>
               </div>
             </div>

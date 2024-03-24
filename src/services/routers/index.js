@@ -30,6 +30,12 @@ const routes = [
     component: () => import("../../views/user/User.vue"),
     children: [...RoutesUser],
   },
+  {
+    path: "/:name",
+    name: "Category",
+    component: () => import("../../views/category/Category.vue"),
+    props: true,
+  },
 
   ...RoutesAuth,
 ];
